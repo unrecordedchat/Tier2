@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <Protobuf Include="Protos\greet.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Server"/>
+        <Protobuf Include="Protos\user.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Server"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -16,25 +17,30 @@
         <PackageReference Include="Grpc.AspNetCore.Server" Version="2.66.0" />
         <PackageReference Include="Grpc.AspNetCore.Web" Version="2.66.0" />
         <PackageReference Include="Grpc.Tools" Version="2.67.0">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="GeneratedFiles\**" />
+        <Compile Remove="GeneratedFiles\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Remove="GeneratedFiles\**" />
+        <EmbeddedResource Remove="GeneratedFiles\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="GeneratedFiles\**" />
+        <Content Remove="GeneratedFiles\**" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="GeneratedFiles\**" />
+        <None Remove="GeneratedFiles\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Domain\Domain.csproj" />
+        <ProjectReference Include="..\HTTPClient\HTTPClient.csproj" />
     </ItemGroup>
 
 </Project>

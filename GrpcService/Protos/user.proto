@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package user;
+
+service UserService {
+  rpc CreateUser (UserEntity) returns (Empty);
+  rpc GetUserById (UserIdRequest) returns (UserEntity);
+  rpc GetUserByUsername (UsernameRequest) returns (UserEntity);
+  rpc GetUserByEmail (EmailRequest) returns (UserEntity);
+  rpc UpdateUsername (UpdateUsernameRequest) returns (Empty);
+  rpc UpdateEmail (UpdateEmailRequest) returns (Empty);
+  rpc UpdateKeys (UpdateKeysRequest) returns (Empty);
+  rpc DeleteUser (UserIdRequest) returns (Empty);
+  rpc UpdatePassword (UpdatePasswordRequest) returns (Empty);
+  rpc VerifyPassword (VerifyPasswordRequest) returns (VerifyPasswordResponse);
+}
+
+message UserEntity {
+  string id = 1;
+  string username = 2;
+  string email = 3;
+  string publicKey = 4;
+  string privateKey = 5;
+  string passHash = 6;
+}
+
+message UserIdRequest {
+  string id = 1;
+}
+
+message UsernameRequest {
+  string username = 1;
+}
+
+message EmailRequest {
+  string email = 1;
+}
+
+message UpdateUsernameRequest {
+  string id = 1;
+  string username = 2;
+}
+
+message UpdateEmailRequest {
+  string id = 1;
+  string email = 2;
+}
+
+message UpdateKeysRequest {
+  string id = 1;
+  string publicKey = 2;
+  string privateKey = 3;
+}
+
+message UpdatePasswordRequest {
+  string id = 1;
+  string password = 2;
+}
+
+message VerifyPasswordRequest {
+  string id = 1;
+  string password = 2;
+}
+
+message VerifyPasswordResponse {
+  bool isValid = 1;
+}
+
+message Empty {}
