@@ -1,9 +1,8 @@
-using HTTPClient.IServices;
 using System.Net;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Entities;
+using HTTPClient.IClient;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Retry;
@@ -32,7 +31,6 @@ namespace HTTPClient.Implementations
             _client = client ?? throw new ArgumentNullException(nameof(client));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-            // Define retry policy with Polly
             _retryPolicy = Policy
                 .Handle<HttpRequestException>()
                 .OrResult<HttpResponseMessage>(response => !response.IsSuccessStatusCode)

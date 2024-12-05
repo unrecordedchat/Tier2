@@ -1,7 +1,6 @@
-using System.Threading.Tasks;
 using Entities;
 
-namespace HTTPClient.IServices
+namespace HTTPClient.IClient
 {
     public interface IUserClient
     {

@@ -1,7 +1,8 @@
 using Entities;
-namespace Domain.Services.User
+
+namespace Domain.Managers.User
 {
-    public interface IUserRepo
+    public interface IUserManager
     {
         Task CreateUserAsync(UserEntity user);
         Task<UserEntity?> GetUserByIdAsync(Guid userId);

@@ -1,3 +1,4 @@
+using Domain.Managers.User;
 using Domain.Services.User;
 using Grpc.Core;
 
@@ -5,9 +6,9 @@ namespace GrpcService.Services.User
 {
     public class UserServiceImpl : UserService.UserServiceBase
     {
-        private readonly IUserRepo _user;
+        private readonly IUserManager _user;
 
-        public UserServiceImpl(IUserRepo user)
+        public UserServiceImpl(IUserManager user)
         {
             _user = user;
         }

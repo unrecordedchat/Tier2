@@ -1,13 +1,14 @@
+using Domain.Managers.User;
 using Entities;
-using HTTPClient.IServices;
+using HTTPClient.IClient;
 
 namespace Domain.Services.User
 {
-    public class UserRepo : IUserRepo
+    public class UserManager : IUserManager
     {
         private readonly IUserClient _userClient;
 
-        public UserRepo(IUserClient userClient)
+        public UserManager(IUserClient userClient)
         {
             _userClient = userClient;
         }
