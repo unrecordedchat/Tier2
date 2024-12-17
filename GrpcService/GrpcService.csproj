@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="Protos\greet.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Server"/>
         <Protobuf Include="Protos\user.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Server"/>
     </ItemGroup>
 

@@ -1,8 +1,7 @@
-using Domain.Managers.User;
 using Entities;
 using HTTPClient.IClient;
 
-namespace Domain.Services.User
+namespace Domain.Managers.User
 {
     public class UserManager : IUserManager
     {
@@ -17,15 +16,20 @@ namespace Domain.Services.User
         {
             await _userClient.CreateUserAsync(user);
         }
-
-        public async Task<UserEntity?> GetUserByIdAsync(Guid userId)
-        {
-            return await _userClient.GetUserByIdAsync(userId);
-        }
-
+        
         public async Task<UserEntity?> GetUserByUsernameAsync(string username)
         {
             return await _userClient.GetUserByUsernameAsync(username);
+        }
+
+        public async Task LoginUserAsync(string username, string password)
+        {
+            await _userClient.LoginUserAsync(username, password);
+        }
+
+        public async Task LoginUserByEmailAsync(string email, string password)
+        {
+            await _userClient.LoginUserByEmailAsync(email, password);
         }
 
         public async Task<UserEntity?> GetUserByEmailAsync(string email)
@@ -42,11 +46,7 @@ namespace Domain.Services.User
         {
             await _userClient.UpdateEmailAsync(userId, email);
         }
-
-        public async Task UpdateKeysAsync(Guid userId, string publicKey, string privateKey)
-        {
-            await _userClient.UpdateKeysAsync(userId, publicKey, privateKey);
-        }
+        
 
         public async Task DeleteUserAsync(Guid userId)
         {
@@ -56,11 +56,6 @@ namespace Domain.Services.User
         public async Task UpdatePasswordAsync(Guid userId, string password)
         {
             await _userClient.UpdatePasswordAsync(userId, password);
-        }
-
-        public async Task<bool> VerifyPasswordAsync(Guid userId, string password)
-        {
-            return await _userClient.VerifyPasswordAsync(userId, password);
         }
     }
 }
