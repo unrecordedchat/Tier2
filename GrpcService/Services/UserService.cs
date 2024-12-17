@@ -1,6 +1,8 @@
 using Domain.Managers.User;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
+using Microsoft.AspNetCore.Identity.Data;
+
 namespace GrpcService.Services
 {
     public class UserServiceImpl : UserService.UserServiceBase
@@ -26,23 +28,27 @@ namespace GrpcService.Services
         public override async Task<UserEntity?> GetUserByUsername(UsernameRequest request, ServerCallContext context)
         {
             var user = await _user.GetUserByUsernameAsync(request.Username);
-            return user != null ? new UserEntity
-            {
-                Username = user.Username,
-                Email = user.Email,
-                PassHash = user.Password
-            } : null;
+            return user != null
+                ? new UserEntity
+                {
+                    Username = user.Username,
+                    Email = user.Email,
+                    PassHash = user.Password
+                }
+                : null;
         }
 
         public override async Task<UserEntity?> GetUserByEmail(EmailRequest request, ServerCallContext context)
         {
             var user = await _user.GetUserByEmailAsync(request.Email);
-            return user != null ? new UserEntity
-            {
-                Username = user.Username,
-                Email = user.Email,
-                PassHash = user.Password
-            } : null;
+            return user != null
+                ? new UserEntity
+                {
+                    Username = user.Username,
+                    Email = user.Email,
+                    PassHash = user.Password
+                }
+                : null;
         }
 
         public override async Task<Empty> UpdateUsername(UpdateUsernameRequest request, ServerCallContext context)
@@ -56,7 +62,7 @@ namespace GrpcService.Services
             await _user.UpdateEmailAsync(Guid.Parse(request.Id), request.Email);
             return new Empty();
         }
-        
+
 
         public override async Task<Empty> DeleteUser(UserIdRequest request, ServerCallContext context)
         {
@@ -69,6 +75,17 @@ namespace GrpcService.Services
             await _user.UpdatePasswordAsync(Guid.Parse(request.Id), request.Password);
             return new Empty();
         }
-        
+
+        public override async Task<Empty> LoginUser(LoginRequest request, ServerCallContext context)
+        {
+            await _user.LoginUserAsync(request.Username, request.Password);
+            return new Empty();
+        }
+
+        public override async Task<Empty> LoginUserByEmail(LoginRequest request, ServerCallContext context)
+        {
+            await _user.LoginUserByEmailAsync(request.Email, request.Password);
+            return new Empty();
+        }
     }
 }

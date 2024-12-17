@@ -40,12 +40,18 @@ message UserIdRequest {
   string id = 1;
 }
 
+message LoginRequest {
+  string username = 1;
+  string email = 2;
+  string password = 3;
+}
+
 service UserService {
   rpc CreateUser(UserEntity) returns (google.protobuf.Empty);
   rpc GetUserByUsername(UsernameRequest) returns (UserEntity);
   rpc GetUserByEmail(EmailRequest) returns (UserEntity);
-  rpc LoginUser(UsernameRequest) returns (google.protobuf.Empty);
-  rpc LoginUserByEmail(EmailRequest) returns (google.protobuf.Empty);
+  rpc LoginUser(LoginRequest) returns (google.protobuf.Empty);
+  rpc LoginUserByEmail(LoginRequest) returns (google.protobuf.Empty);
   rpc UpdateUsername(UpdateUsernameRequest) returns (google.protobuf.Empty);
   rpc UpdateEmail(UpdateEmailRequest) returns (google.protobuf.Empty);
   rpc DeleteUser(UserIdRequest) returns (google.protobuf.Empty);
