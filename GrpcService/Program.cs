@@ -1,7 +1,6 @@
 using GrpcService.Services;
 using Domain.Managers.User;
-using HTTPClient.Implementations;
-using HTTPClient.IClient;
+using HTTPClient.HTTPUserClient;
 
 var builder = WebApplication.CreateBuilder(args);
 

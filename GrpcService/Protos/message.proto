@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+// Define the MessageDTO object
+message MessageDTO {
+  string id = 1;                        // Message ID (Nullable for creation)
+  string sender_id = 2;                 // ID of the sender (Required)
+  string recipient_id = 3;              // ID of the recipient (Nullable, only for direct messages)
+  string group_id = 4;                  // ID of the group (Nullable, only for group messages)
+  bool is_group = 5;                    // Indicates if the message is for a group (Required)
+  string content_encrypted = 6;         // Encrypted content of the message (Required)
+  google.protobuf.Timestamp timestamp = 7; // Timestamp of the message (Nullable, for responses)
+  bool is_deleted = 8;                  // Indicates if the message is deleted (Nullable, for responses)
+  string new_content_encrypted = 9;     // New content for update requests (Optional)
+}
+
+// Request to create a new message
+message CreateMessageRequest {
+  MessageDTO message = 1;  // The message object for creation
+}
+
+// Request to retrieve a message by ID
+message GetMessageByIdRequest {
+  string message_id = 1;  // ID of the message to retrieve
+}
+
+// Request to retrieve messages between two users
+message GetMessagesBetweenUsersRequest {
+  string sender_id = 1;     // ID of the sender
+  string recipient_id = 2;  // ID of the recipient
+}
+
+// Request to retrieve messages for a specific group
+message GetMessagesForGroupRequest {
+  string group_id = 1;  // ID of the group
+}
+
+// Request to update the content of a message
+message UpdateMessageContentRequest {
+  string message_id = 1;           // ID of the message to update
+  string new_content_encrypted = 2;  // New encrypted content of the message
+}
+
+// Request to permanently delete a message
+message DeleteMessageRequest {
+  string message_id = 1;  // ID of the message to delete
+}
+
+// Request to perform a soft delete on a message
+message SoftDeleteMessageRequest {
+  string message_id = 1;  // ID of the message to soft delete
+}
+
+// Response to retrieve a list of messages
+message MessageListResponse {
+  repeated MessageDTO messages = 1;  // List of messages
+}
+
+// The message service definition
+service MessageService {
+  rpc CreateMessage (CreateMessageRequest) returns (google.protobuf.Empty);
+  rpc GetMessagesBetweenUsers (GetMessagesBetweenUsersRequest) returns (MessageListResponse);
+  rpc GetMessagesForGroup (GetMessagesForGroupRequest) returns (MessageListResponse);
+  rpc UpdateMessageContent (UpdateMessageContentRequest) returns (google.protobuf.Empty);
+  rpc DeleteMessage (DeleteMessageRequest) returns (google.protobuf.Empty);
+  rpc SoftDeleteMessage (SoftDeleteMessageRequest) returns (google.protobuf.Empty);
+}

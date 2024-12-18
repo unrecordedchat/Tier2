@@ -4,21 +4,21 @@ option csharp_namespace = "GrpcService";
 
 import "google/protobuf/empty.proto";
 
-message UserEntity {
+message UserDTO {
   string id = 1;
   string username = 2;
   string email = 3;
-  string passHash = 4;
+  string password = 4;
+  string publicKey = 5;
+  string privateKeyEncrypted = 6;
 }
 
 message UsernameRequest {
   string username = 1;
-  string password = 2;
 }
 
-message EmailRequest {
-  string email = 1;
-  string password = 2;
+message UserIdRequest {
+  string id = 1;
 }
 
 message UpdateUsernameRequest {
@@ -36,24 +36,27 @@ message UpdatePasswordRequest {
   string password = 2;
 }
 
-message UserIdRequest {
-  string id = 1;
-}
-
 message LoginRequest {
   string username = 1;
-  string email = 2;
-  string password = 3;
+  string password = 2;
+}
+
+message LoginResponse {
+  string token = 1;
+}
+
+message ResponseStatus {
+  bool success = 1;
+  string message = 2;
 }
 
 service UserService {
-  rpc CreateUser(UserEntity) returns (google.protobuf.Empty);
-  rpc GetUserByUsername(UsernameRequest) returns (UserEntity);
-  rpc GetUserByEmail(EmailRequest) returns (UserEntity);
-  rpc LoginUser(LoginRequest) returns (google.protobuf.Empty);
-  rpc LoginUserByEmail(LoginRequest) returns (google.protobuf.Empty);
-  rpc UpdateUsername(UpdateUsernameRequest) returns (google.protobuf.Empty);
-  rpc UpdateEmail(UpdateEmailRequest) returns (google.protobuf.Empty);
-  rpc DeleteUser(UserIdRequest) returns (google.protobuf.Empty);
-  rpc UpdatePassword(UpdatePasswordRequest) returns (google.protobuf.Empty);
+  rpc CreateUser(UserDTO) returns (ResponseStatus);
+  rpc GetUserByUsername(UsernameRequest) returns (UserDTO);
+  rpc UpdateUsername(UpdateUsernameRequest) returns (ResponseStatus);
+  rpc UpdateEmail(UpdateEmailRequest) returns (ResponseStatus);
+  rpc UpdatePassword(UpdatePasswordRequest) returns (ResponseStatus);
+  rpc DeleteUser(UserIdRequest) returns (ResponseStatus);
+  rpc LoginUser(LoginRequest) returns (LoginResponse);
+  rpc LogoutUser(UserIdRequest) returns (ResponseStatus);
 }

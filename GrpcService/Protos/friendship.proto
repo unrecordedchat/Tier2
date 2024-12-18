@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+import "google/protobuf/empty.proto";
+
+message FriendshipDTO {
+  string id = 1;              // Unique identifier for the friendship
+  string userId1 = 2;         // First user ID in the friendship
+  string userId2 = 3;         // Second user ID in the friendship
+  string status = 4;          // Status of the friendship (e.g., "FRD" for friends, "PND" for pending)
+}
+
+message FriendshipRequest {
+  string userId1 = 1;
+  string userId2 = 2;
+}
+
+message FriendshipStatusRequest {
+  string userId1 = 1;
+  string userId2 = 2;
+  string status = 3;
+}
+
+message FriendshipUserIdRequest {
+  string userId = 1;
+}
+
+message FriendshipListResponse {
+  repeated FriendshipDTO friendships = 1;
+}
+
+message FriendshipResponseStatus {
+  bool success = 1;
+  string message = 2;
+}
+
+service FriendshipService {
+  rpc CreateFriendship(FriendshipStatusRequest) returns (FriendshipResponseStatus);
+  rpc GetFriendship(FriendshipRequest) returns (FriendshipDTO);
+  rpc GetAllFriendships(FriendshipUserIdRequest) returns (FriendshipListResponse);
+  rpc UpdateFriendshipStatus(FriendshipStatusRequest) returns (FriendshipResponseStatus);
+  rpc DeleteFriendship(FriendshipRequest) returns (FriendshipResponseStatus);
+}

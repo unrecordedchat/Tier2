@@ -7,12 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <!-- Include only the primary .proto files that import shared.proto -->
         <Protobuf Include="Protos\user.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Server"/>
+        <Protobuf Include="Protos\message.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Server"/>
+        <Protobuf Include="Protos\friendship.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Server"/>
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Google.Protobuf" Version="3.28.3" />
-        <PackageReference Include="Grpc.AspNetCore" Version="2.57.0"/>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.57.0" />
         <PackageReference Include="Grpc.AspNetCore.Server" Version="2.66.0" />
         <PackageReference Include="Grpc.AspNetCore.Web" Version="2.66.0" />
         <PackageReference Include="Grpc.Tools" Version="2.67.0">
@@ -21,6 +24,7 @@
         </PackageReference>
     </ItemGroup>
 
+    <!-- Remove any unnecessary files generated into GeneratedFiles -->
     <ItemGroup>
         <Compile Remove="GeneratedFiles\**" />
     </ItemGroup>
@@ -38,6 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <!-- Project references for shared logic -->
         <ProjectReference Include="..\Domain\Domain.csproj" />
         <ProjectReference Include="..\HTTPClient\HTTPClient.csproj" />
     </ItemGroup>

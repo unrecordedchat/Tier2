@@ -46,95 +46,87 @@ namespace GrpcService {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcService.UserEntity> __Marshaller_UserEntity = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.UserEntity.Parser));
+    static readonly grpc::Marshaller<global::GrpcService.UserDTO> __Marshaller_UserDTO = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.UserDTO.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
+    static readonly grpc::Marshaller<global::GrpcService.ResponseStatus> __Marshaller_ResponseStatus = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.ResponseStatus.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.UsernameRequest> __Marshaller_UsernameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.UsernameRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcService.EmailRequest> __Marshaller_EmailRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.EmailRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcService.LoginRequest> __Marshaller_LoginRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.LoginRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.UpdateUsernameRequest> __Marshaller_UpdateUsernameRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.UpdateUsernameRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.UpdateEmailRequest> __Marshaller_UpdateEmailRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.UpdateEmailRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.UpdatePasswordRequest> __Marshaller_UpdatePasswordRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.UpdatePasswordRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::GrpcService.UserIdRequest> __Marshaller_UserIdRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.UserIdRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcService.UpdatePasswordRequest> __Marshaller_UpdatePasswordRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.UpdatePasswordRequest.Parser));
+    static readonly grpc::Marshaller<global::GrpcService.LoginRequest> __Marshaller_LoginRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.LoginRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcService.LoginResponse> __Marshaller_LoginResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcService.LoginResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.UserEntity, global::Google.Protobuf.WellKnownTypes.Empty> __Method_CreateUser = new grpc::Method<global::GrpcService.UserEntity, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly grpc::Method<global::GrpcService.UserDTO, global::GrpcService.ResponseStatus> __Method_CreateUser = new grpc::Method<global::GrpcService.UserDTO, global::GrpcService.ResponseStatus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "CreateUser",
-        __Marshaller_UserEntity,
-        __Marshaller_google_protobuf_Empty);
+        __Marshaller_UserDTO,
+        __Marshaller_ResponseStatus);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.UsernameRequest, global::GrpcService.UserEntity> __Method_GetUserByUsername = new grpc::Method<global::GrpcService.UsernameRequest, global::GrpcService.UserEntity>(
+    static readonly grpc::Method<global::GrpcService.UsernameRequest, global::GrpcService.UserDTO> __Method_GetUserByUsername = new grpc::Method<global::GrpcService.UsernameRequest, global::GrpcService.UserDTO>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetUserByUsername",
         __Marshaller_UsernameRequest,
-        __Marshaller_UserEntity);
+        __Marshaller_UserDTO);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.EmailRequest, global::GrpcService.UserEntity> __Method_GetUserByEmail = new grpc::Method<global::GrpcService.EmailRequest, global::GrpcService.UserEntity>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "GetUserByEmail",
-        __Marshaller_EmailRequest,
-        __Marshaller_UserEntity);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.LoginRequest, global::Google.Protobuf.WellKnownTypes.Empty> __Method_LoginUser = new grpc::Method<global::GrpcService.LoginRequest, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "LoginUser",
-        __Marshaller_LoginRequest,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.LoginRequest, global::Google.Protobuf.WellKnownTypes.Empty> __Method_LoginUserByEmail = new grpc::Method<global::GrpcService.LoginRequest, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "LoginUserByEmail",
-        __Marshaller_LoginRequest,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.UpdateUsernameRequest, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateUsername = new grpc::Method<global::GrpcService.UpdateUsernameRequest, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly grpc::Method<global::GrpcService.UpdateUsernameRequest, global::GrpcService.ResponseStatus> __Method_UpdateUsername = new grpc::Method<global::GrpcService.UpdateUsernameRequest, global::GrpcService.ResponseStatus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UpdateUsername",
         __Marshaller_UpdateUsernameRequest,
-        __Marshaller_google_protobuf_Empty);
+        __Marshaller_ResponseStatus);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.UpdateEmailRequest, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdateEmail = new grpc::Method<global::GrpcService.UpdateEmailRequest, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly grpc::Method<global::GrpcService.UpdateEmailRequest, global::GrpcService.ResponseStatus> __Method_UpdateEmail = new grpc::Method<global::GrpcService.UpdateEmailRequest, global::GrpcService.ResponseStatus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UpdateEmail",
         __Marshaller_UpdateEmailRequest,
-        __Marshaller_google_protobuf_Empty);
+        __Marshaller_ResponseStatus);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.UserIdRequest, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeleteUser = new grpc::Method<global::GrpcService.UserIdRequest, global::Google.Protobuf.WellKnownTypes.Empty>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "DeleteUser",
-        __Marshaller_UserIdRequest,
-        __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcService.UpdatePasswordRequest, global::Google.Protobuf.WellKnownTypes.Empty> __Method_UpdatePassword = new grpc::Method<global::GrpcService.UpdatePasswordRequest, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly grpc::Method<global::GrpcService.UpdatePasswordRequest, global::GrpcService.ResponseStatus> __Method_UpdatePassword = new grpc::Method<global::GrpcService.UpdatePasswordRequest, global::GrpcService.ResponseStatus>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UpdatePassword",
         __Marshaller_UpdatePasswordRequest,
-        __Marshaller_google_protobuf_Empty);
+        __Marshaller_ResponseStatus);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.UserIdRequest, global::GrpcService.ResponseStatus> __Method_DeleteUser = new grpc::Method<global::GrpcService.UserIdRequest, global::GrpcService.ResponseStatus>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteUser",
+        __Marshaller_UserIdRequest,
+        __Marshaller_ResponseStatus);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.LoginRequest, global::GrpcService.LoginResponse> __Method_LoginUser = new grpc::Method<global::GrpcService.LoginRequest, global::GrpcService.LoginResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "LoginUser",
+        __Marshaller_LoginRequest,
+        __Marshaller_LoginResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcService.UserIdRequest, global::GrpcService.ResponseStatus> __Method_LogoutUser = new grpc::Method<global::GrpcService.UserIdRequest, global::GrpcService.ResponseStatus>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "LogoutUser",
+        __Marshaller_UserIdRequest,
+        __Marshaller_ResponseStatus);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -147,55 +139,49 @@ namespace GrpcService {
     public abstract partial class UserServiceBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> CreateUser(global::GrpcService.UserEntity request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.ResponseStatus> CreateUser(global::GrpcService.UserDTO request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcService.UserEntity> GetUserByUsername(global::GrpcService.UsernameRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.UserDTO> GetUserByUsername(global::GrpcService.UsernameRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::GrpcService.UserEntity> GetUserByEmail(global::GrpcService.EmailRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.ResponseStatus> UpdateUsername(global::GrpcService.UpdateUsernameRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> LoginUser(global::GrpcService.LoginRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.ResponseStatus> UpdateEmail(global::GrpcService.UpdateEmailRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> LoginUserByEmail(global::GrpcService.LoginRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.ResponseStatus> UpdatePassword(global::GrpcService.UpdatePasswordRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateUsername(global::GrpcService.UpdateUsernameRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.ResponseStatus> DeleteUser(global::GrpcService.UserIdRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdateEmail(global::GrpcService.UpdateEmailRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.LoginResponse> LoginUser(global::GrpcService.LoginRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteUser(global::GrpcService.UserIdRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> UpdatePassword(global::GrpcService.UpdatePasswordRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::GrpcService.ResponseStatus> LogoutUser(global::GrpcService.UserIdRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -210,13 +196,12 @@ namespace GrpcService {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateUser, serviceImpl.CreateUser)
           .AddMethod(__Method_GetUserByUsername, serviceImpl.GetUserByUsername)
-          .AddMethod(__Method_GetUserByEmail, serviceImpl.GetUserByEmail)
-          .AddMethod(__Method_LoginUser, serviceImpl.LoginUser)
-          .AddMethod(__Method_LoginUserByEmail, serviceImpl.LoginUserByEmail)
           .AddMethod(__Method_UpdateUsername, serviceImpl.UpdateUsername)
           .AddMethod(__Method_UpdateEmail, serviceImpl.UpdateEmail)
+          .AddMethod(__Method_UpdatePassword, serviceImpl.UpdatePassword)
           .AddMethod(__Method_DeleteUser, serviceImpl.DeleteUser)
-          .AddMethod(__Method_UpdatePassword, serviceImpl.UpdatePassword).Build();
+          .AddMethod(__Method_LoginUser, serviceImpl.LoginUser)
+          .AddMethod(__Method_LogoutUser, serviceImpl.LogoutUser).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -226,15 +211,14 @@ namespace GrpcService {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, UserServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_CreateUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UserEntity, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.CreateUser));
-      serviceBinder.AddMethod(__Method_GetUserByUsername, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UsernameRequest, global::GrpcService.UserEntity>(serviceImpl.GetUserByUsername));
-      serviceBinder.AddMethod(__Method_GetUserByEmail, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.EmailRequest, global::GrpcService.UserEntity>(serviceImpl.GetUserByEmail));
-      serviceBinder.AddMethod(__Method_LoginUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.LoginRequest, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.LoginUser));
-      serviceBinder.AddMethod(__Method_LoginUserByEmail, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.LoginRequest, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.LoginUserByEmail));
-      serviceBinder.AddMethod(__Method_UpdateUsername, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UpdateUsernameRequest, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.UpdateUsername));
-      serviceBinder.AddMethod(__Method_UpdateEmail, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UpdateEmailRequest, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.UpdateEmail));
-      serviceBinder.AddMethod(__Method_DeleteUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UserIdRequest, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.DeleteUser));
-      serviceBinder.AddMethod(__Method_UpdatePassword, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UpdatePasswordRequest, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.UpdatePassword));
+      serviceBinder.AddMethod(__Method_CreateUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UserDTO, global::GrpcService.ResponseStatus>(serviceImpl.CreateUser));
+      serviceBinder.AddMethod(__Method_GetUserByUsername, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UsernameRequest, global::GrpcService.UserDTO>(serviceImpl.GetUserByUsername));
+      serviceBinder.AddMethod(__Method_UpdateUsername, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UpdateUsernameRequest, global::GrpcService.ResponseStatus>(serviceImpl.UpdateUsername));
+      serviceBinder.AddMethod(__Method_UpdateEmail, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UpdateEmailRequest, global::GrpcService.ResponseStatus>(serviceImpl.UpdateEmail));
+      serviceBinder.AddMethod(__Method_UpdatePassword, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UpdatePasswordRequest, global::GrpcService.ResponseStatus>(serviceImpl.UpdatePassword));
+      serviceBinder.AddMethod(__Method_DeleteUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UserIdRequest, global::GrpcService.ResponseStatus>(serviceImpl.DeleteUser));
+      serviceBinder.AddMethod(__Method_LoginUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.LoginRequest, global::GrpcService.LoginResponse>(serviceImpl.LoginUser));
+      serviceBinder.AddMethod(__Method_LogoutUser, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::GrpcService.UserIdRequest, global::GrpcService.ResponseStatus>(serviceImpl.LogoutUser));
     }
 
   }
