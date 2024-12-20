@@ -30,7 +30,7 @@ namespace HTTPClient.HTTPUserClient
 
         /// <summary>
         /// Deserializes an HTTP response into a specified type.
-        /// </summary>
+        /// </summary> 
         /// <typeparam name="T">The type to deserialize the response into.</typeparam>
         /// <param name="response">The HTTP response containing the serialized JSON.</param>
         /// <returns>

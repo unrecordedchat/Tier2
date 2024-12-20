@@ -21,7 +21,7 @@ namespace HTTPClient.HTTPFriendshipClient
 
         public FriendshipClient(HttpClient httpClient, IConfiguration configuration, ILogger<FriendshipClient> logger)
         {
-            _httpClient = httpClient;
+            _httpClient = Client.GetHttpClient();
             _logger = logger;
             // Configurable routes, fallback to default value if not provided
             _baseRoute = configuration["FriendshipApi:BaseRoute"] ?? "api/friendships";

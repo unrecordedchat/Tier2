@@ -16,7 +16,7 @@ namespace HTTPClient.HTTPMessageClient
         /// <param name="httpClient">An instance of <see cref="HttpClient"/> for sending HTTP requests.</param>
         public MessageClient(HttpClient httpClient)
         {
-            _httpClient = httpClient;
+            _httpClient = Client.GetHttpClient();
         }
 
         /// <inheritdoc />
